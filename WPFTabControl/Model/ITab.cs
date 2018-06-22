@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace WPFTabControl
 {
-    public interface ITab
+    public interface ITab : IDisposable
     {
         string Name { get; set; }
         ICommand CloseCommand { get; }

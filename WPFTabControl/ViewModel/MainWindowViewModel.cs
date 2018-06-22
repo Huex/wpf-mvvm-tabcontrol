@@ -49,6 +49,8 @@ namespace WPFTabControl
         private void OnTabCloseRequested(object sender, EventArgs e)
         {
             Tabs.Remove((ITab)sender);
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
     }
 }
