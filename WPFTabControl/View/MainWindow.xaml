@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTabControl"
-        xmlns:tabControl="clr-namespace:WPFTabControl.Properties"
+        xmlns:dd="urn:gong-wpf-dragdrop"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="350" 
@@ -14,7 +14,9 @@
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <Button Command="{Binding NewTabCommand}">New tab</Button>
         </StackPanel>
-        <TabControl ItemsSource="{Binding Tabs}">
+        <TabControl ItemsSource="{Binding Tabs}" 
+                    dd:DragDrop.IsDragSource="True"
+                    dd:DragDrop.IsDropTarget="True">
             <TabControl.Resources>
                 <DataTemplate DataType="{x:Type local:MySimpleTab}">
                     <local:MySimpleTabView/>
